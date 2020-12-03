@@ -17,7 +17,7 @@ static ALLOC: jemallocator::Jemalloc = jemallocator::Jemalloc;
 #[actix_web::main]
 async fn main() -> Result<(), MainError> {
     let opt = Opt::from_args();
-
+    
     #[cfg(all(not(debug_assertions), feature = "sentry"))]
     let _sentry = sentry::init((
         if !opt.no_sentry {
